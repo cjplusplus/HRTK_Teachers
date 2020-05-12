@@ -370,7 +370,7 @@
             this.MinimumSize = new System.Drawing.Size(830, 650);
             this.Name = "AddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddForm";
+            this.Text = "Занести викладача до бази даних";
             this.Activated += new System.EventHandler(this.AddForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.CalendarActive)).EndInit();

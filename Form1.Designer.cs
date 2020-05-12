@@ -165,7 +165,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Авторизация";
+            this.Text = "Авторизація";
             ((System.ComponentModel.ISupportInitialize)(this.eyeActive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eyeNoneActive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
