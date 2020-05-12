@@ -1,0 +1,11 @@
+*.exe
+WindowsFormsApp1.exe.config
+*.pdb
+.suo
+*.suo
+DesignTimeResolveAssemblyReferences.cache
+DesignTimeResolveAssemblyReferencesInput.cache
+WindowsFormsApp1.csprojAssemblyReference.cache
+obj/
+/.vs/WindowsFormsApp1/v16/
+/bin/Debug/
