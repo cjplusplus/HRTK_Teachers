@@ -29,15 +29,14 @@
         private void InitializeComponent()
         {
             this.LabelTitle = new System.Windows.Forms.Label();
-            this.TextString1 = new System.Windows.Forms.TextBox();
             this.TextString2 = new System.Windows.Forms.TextBox();
             this.TextString3 = new System.Windows.Forms.TextBox();
             this.TextString4 = new System.Windows.Forms.TextBox();
             this.TextString5 = new System.Windows.Forms.TextBox();
             this.TextString6 = new System.Windows.Forms.TextBox();
             this.TextString7 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ButtonCancel = new System.Windows.Forms.Button();
+            this.ButtonOk = new System.Windows.Forms.Button();
             this.ListCK = new System.Windows.Forms.ListBox();
             this.Calendar = new System.Windows.Forms.MonthCalendar();
             this.CalendarActive = new System.Windows.Forms.PictureBox();
@@ -74,19 +73,6 @@
             this.LabelTitle.Size = new System.Drawing.Size(257, 31);
             this.LabelTitle.TabIndex = 0;
             this.LabelTitle.Text = "Додавання викладача";
-            // 
-            // TextString1
-            // 
-            this.TextString1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(56)))), ((int)(((byte)(55)))));
-            this.TextString1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TextString1.Enabled = false;
-            this.TextString1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TextString1.ForeColor = System.Drawing.Color.White;
-            this.TextString1.Location = new System.Drawing.Point(169, 568);
-            this.TextString1.Name = "TextString1";
-            this.TextString1.Size = new System.Drawing.Size(474, 19);
-            this.TextString1.TabIndex = 8;
-            this.TextString1.Visible = false;
             // 
             // TextString2
             // 
@@ -160,32 +146,34 @@
             this.TextString7.Enter += new System.EventHandler(this.TextString7_Enter);
             this.TextString7.Leave += new System.EventHandler(this.TextString7_Leave);
             // 
-            // button1
+            // ButtonCancel
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(56)))), ((int)(((byte)(55)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(246, 519);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 27);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Відмінити";
-            this.button1.UseVisualStyleBackColor = false;
+            this.ButtonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(56)))), ((int)(((byte)(55)))));
+            this.ButtonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonCancel.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonCancel.ForeColor = System.Drawing.SystemColors.Control;
+            this.ButtonCancel.Location = new System.Drawing.Point(246, 519);
+            this.ButtonCancel.Name = "ButtonCancel";
+            this.ButtonCancel.Size = new System.Drawing.Size(111, 27);
+            this.ButtonCancel.TabIndex = 15;
+            this.ButtonCancel.Text = "Відмінити";
+            this.ButtonCancel.UseVisualStyleBackColor = false;
+            this.ButtonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
-            // button2
+            // ButtonOk
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(56)))), ((int)(((byte)(55)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(445, 519);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 27);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Добре";
-            this.button2.UseVisualStyleBackColor = false;
+            this.ButtonOk.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(56)))), ((int)(((byte)(55)))));
+            this.ButtonOk.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ButtonOk.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ButtonOk.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ButtonOk.ForeColor = System.Drawing.SystemColors.Control;
+            this.ButtonOk.Location = new System.Drawing.Point(445, 519);
+            this.ButtonOk.Name = "ButtonOk";
+            this.ButtonOk.Size = new System.Drawing.Size(111, 27);
+            this.ButtonOk.TabIndex = 16;
+            this.ButtonOk.Text = "Добре";
+            this.ButtonOk.UseVisualStyleBackColor = false;
+            this.ButtonOk.Click += new System.EventHandler(this.ButtonOk_Click);
             // 
             // ListCK
             // 
@@ -364,15 +352,14 @@
             this.Controls.Add(this.ListIconActive);
             this.Controls.Add(this.ArrowList);
             this.Controls.Add(this.ListCK);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ButtonOk);
+            this.Controls.Add(this.ButtonCancel);
             this.Controls.Add(this.TextString7);
             this.Controls.Add(this.TextString6);
             this.Controls.Add(this.TextString5);
             this.Controls.Add(this.TextString4);
             this.Controls.Add(this.TextString3);
             this.Controls.Add(this.TextString2);
-            this.Controls.Add(this.TextString1);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
@@ -414,15 +401,14 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.TextBox TextString1;
         private System.Windows.Forms.TextBox TextString2;
         private System.Windows.Forms.TextBox TextString3;
         private System.Windows.Forms.TextBox TextString4;
         private System.Windows.Forms.TextBox TextString5;
         private System.Windows.Forms.TextBox TextString6;
         private System.Windows.Forms.TextBox TextString7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ButtonCancel;
+        private System.Windows.Forms.Button ButtonOk;
         private System.Windows.Forms.ListBox ListCK;
         private System.Windows.Forms.PictureBox ArrowList;
         private System.Windows.Forms.PictureBox ListIconActive;
