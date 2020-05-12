@@ -766,10 +766,37 @@ namespace WindowsFormsApp1
 
         private void AddIcon_Click(object sender, EventArgs e)
         {
-            AddForm frm = new AddForm();
-            frm.Owner = this;
-            frm.Show();
-            
+            if (LabelTeachers.ForeColor == Color.Aqua)
+            {
+                AddTeacherForm frm = new AddTeacherForm();
+                frm.Owner = this;
+                frm.Show();
+            }
+            else if (LabelCKonissiya.ForeColor == Color.Aqua)
+            {
+                // CK
+            }
+            else if (LabelMetObesp.ForeColor == Color.Aqua)
+            {
+                // MO
+            }
+            else if (LabelMetObespType.ForeColor == Color.Aqua)
+            {
+                // MOT
+            }
+            else if (LabelSertifictati.ForeColor == Color.Aqua)
+            {
+                // S
+            }
+            else if (LabelPubAndKonf.ForeColor == Color.Aqua)
+            {
+                // PAK
+            }
+            else if (LabelPovKval.ForeColor == Color.Aqua)
+            {
+                // PK
+            }
+
         }
     }
    

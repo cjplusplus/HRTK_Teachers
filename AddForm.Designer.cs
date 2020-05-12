@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class AddForm
+    partial class AddTeacherForm
     {
         /// <summary>
         /// Required designer variable.
@@ -51,6 +51,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.LabelString1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CalendarActive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CalendarNonActive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ListIconActive)).BeginInit();
@@ -68,7 +69,7 @@
             // 
             this.LabelTitle.AutoSize = true;
             this.LabelTitle.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelTitle.Location = new System.Drawing.Point(291, 50);
+            this.LabelTitle.Location = new System.Drawing.Point(275, 50);
             this.LabelTitle.Name = "LabelTitle";
             this.LabelTitle.Size = new System.Drawing.Size(257, 31);
             this.LabelTitle.TabIndex = 0;
@@ -78,13 +79,14 @@
             // 
             this.TextString1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(56)))), ((int)(((byte)(55)))));
             this.TextString1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextString1.Enabled = false;
             this.TextString1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TextString1.Location = new System.Drawing.Point(161, 115);
+            this.TextString1.ForeColor = System.Drawing.Color.White;
+            this.TextString1.Location = new System.Drawing.Point(169, 568);
             this.TextString1.Name = "TextString1";
             this.TextString1.Size = new System.Drawing.Size(474, 19);
             this.TextString1.TabIndex = 8;
-            this.TextString1.Enter += new System.EventHandler(this.TextString1_Enter);
-            this.TextString1.Leave += new System.EventHandler(this.TextString1_Leave);
+            this.TextString1.Visible = false;
             // 
             // TextString2
             // 
@@ -336,13 +338,26 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // AddForm
+            // LabelString1
+            // 
+            this.LabelString1.AutoSize = true;
+            this.LabelString1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(56)))), ((int)(((byte)(55)))));
+            this.LabelString1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelString1.ForeColor = System.Drawing.SystemColors.Control;
+            this.LabelString1.Location = new System.Drawing.Point(158, 113);
+            this.LabelString1.Name = "LabelString1";
+            this.LabelString1.Size = new System.Drawing.Size(46, 20);
+            this.LabelString1.TabIndex = 23;
+            this.LabelString1.Text = "label1";
+            // 
+            // AddTeacherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(199)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(814, 611);
+            this.Controls.Add(this.LabelString1);
             this.Controls.Add(this.CalendarActive);
             this.Controls.Add(this.CalendarNonActive);
             this.Controls.Add(this.Calendar);
@@ -368,7 +383,7 @@
             this.Controls.Add(this.LabelTitle);
             this.MaximumSize = new System.Drawing.Size(830, 650);
             this.MinimumSize = new System.Drawing.Size(830, 650);
-            this.Name = "AddForm";
+            this.Name = "AddTeacherForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Занести викладача до бази даних";
             this.Activated += new System.EventHandler(this.AddForm_Activated);
@@ -414,5 +429,6 @@
         private System.Windows.Forms.MonthCalendar Calendar;
         private System.Windows.Forms.PictureBox CalendarNonActive;
         private System.Windows.Forms.PictureBox CalendarActive;
+        private System.Windows.Forms.Label LabelString1;
     }
 }

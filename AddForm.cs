@@ -12,15 +12,25 @@ using MySql.Data.MySqlClient;
 
 namespace WindowsFormsApp1
 {
-    public partial class AddForm : Form
+    public partial class AddTeacherForm : Form
     {
         MySqlConnection mysql_connection;
-        public AddForm()
+        public AddTeacherForm()
         {
             InitializeComponent();
             mysql_connection = connectDataBase();
             ListCK.HorizontalScrollbar = true;
+            createToolTip(TextString3, "Дата повинна мати формат: дд.мм.рррр");
         }
+
+        private void createToolTip(Control controlForToolTip, string toolTipText)
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.Active = true;
+            toolTip.SetToolTip(controlForToolTip, toolTipText);
+            toolTip.IsBalloon = true;
+        }
+
 
         public MySqlConnection connectDataBase()
         {
@@ -62,8 +72,10 @@ namespace WindowsFormsApp1
             MainForm main = this.Owner as MainForm;
             if (main.LabelTeachers.ForeColor == Color.Aqua)
             {
-                TextString1.Text = "Циклова комісія";
-                TextString1.ForeColor = Color.LightGray;
+                LabelString1.Text = "Циклова комісія";
+                LabelString1.ForeColor = Color.LightGray;
+                //TextString1.Text = "Циклова комісія";
+                //TextString1.ForeColor = Color.LightGray;
                 TextString2.Text = "Викладач";
                 TextString2.ForeColor = Color.LightGray;
                 TextString3.Text = "Дата народження";
@@ -98,10 +110,12 @@ namespace WindowsFormsApp1
         }
         private void ListCK_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TextString1.Text = ListCK.SelectedItem.ToString();
-            TextString1.Enabled = true;
+            LabelString1.Text = ListCK.SelectedItem.ToString();
+            //TextString1.Text = ListCK.SelectedItem.ToString();
+            //TextString1.Enabled = false;                        
         }
-        // ck
+        // ck// Замена с текстстринг на лейблстринг
+        /*
         private void TextString1_Enter(object sender, EventArgs e)
         {
             if (TextString1.Text == "Циклова комісія")
@@ -118,6 +132,7 @@ namespace WindowsFormsApp1
                 TextString1.ForeColor = Color.LightGray;
             }
         }
+        */
         // teacher
         private void TextString2_Enter(object sender, EventArgs e)
         {
