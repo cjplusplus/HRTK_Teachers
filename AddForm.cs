@@ -21,7 +21,10 @@ namespace WindowsFormsApp1
             mysql_connection = connectDataBase();
             ListCK.HorizontalScrollbar = true;
             createToolTip(TextString3, "Дата повинна мати формат: дд.мм.рррр");
+
         }
+         
+
 
         private void createToolTip(Control controlForToolTip, string toolTipText)
         {
