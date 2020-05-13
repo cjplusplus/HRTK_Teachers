@@ -216,21 +216,39 @@ namespace WindowsFormsApp1
         // Icon calendar
         private void CalendarNonActive_Click(object sender, EventArgs e)
         {
-            CalendarNonActive.Visible = false;
-            CalendarActive.Visible = true;
-            Calendar.Visible = true;
+            CalendarNonActive1.Visible = false;
+            CalendarActive1.Visible = true;
+            Calendar1.Visible = true;
         }
         // Icon calendar
         private void CalendarActive_Click(object sender, EventArgs e)
         {
-            CalendarNonActive.Visible = true;
-            CalendarActive.Visible = false;
-            Calendar.Visible = false;
+            CalendarNonActive1.Visible = true;
+            CalendarActive1.Visible = false;
+            Calendar1.Visible = false;
         }
         //Calendar
         private void Calendar_DateSelected(object sender, DateRangeEventArgs e)
         {
-            TextString3.Text = String.Format( Calendar.SelectionStart.ToShortDateString());
+            TextString3.Text = String.Format( Calendar1.SelectionStart.ToShortDateString());
+        }
+        //Calendar 2.0
+        private void CalendarNonActive2_Click(object sender, EventArgs e)
+        {
+            CalendarNonActive2.Visible = false;
+            CalendarActive2.Visible = true;
+            Calendar2.Visible = true;
+        }
+        private void CalendarActive2_Click(object sender, EventArgs e)
+        {
+            CalendarNonActive2.Visible = true;
+            CalendarActive2.Visible = false;
+            Calendar2.Visible = false;
+        }
+
+        private void Calendar2_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            TextString7.Text = String.Format(Calendar2.SelectionStart.ToShortDateString());
         }
 
         private void ButtonCancel_Click(object sender, EventArgs e)
@@ -296,6 +314,8 @@ namespace WindowsFormsApp1
 
             }
         }
+
+
     }
 }
 // TEST
