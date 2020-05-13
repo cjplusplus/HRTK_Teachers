@@ -21,7 +21,10 @@ namespace WindowsFormsApp1
             mysql_connection = connectDataBase();
             ListCK.HorizontalScrollbar = true;
             createToolTip(TextString3, "Дата повинна мати формат: дд.мм.рррр");
+
         }
+         
+
 
         private void createToolTip(Control controlForToolTip, string toolTipText)
         {
@@ -74,8 +77,6 @@ namespace WindowsFormsApp1
             {
                 LabelString1.Text = "Циклова комісія";
                 LabelString1.ForeColor = Color.LightGray;
-                //TextString1.Text = "Циклова комісія";
-                //TextString1.ForeColor = Color.LightGray;
                 TextString2.Text = "Викладач";
                 TextString2.ForeColor = Color.LightGray;
                 TextString3.Text = "Дата народження";
@@ -110,29 +111,9 @@ namespace WindowsFormsApp1
         }
         private void ListCK_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LabelString1.Text = ListCK.SelectedItem.ToString();
-            //TextString1.Text = ListCK.SelectedItem.ToString();
-            //TextString1.Enabled = false;                        
+            LabelString1.Text = ListCK.SelectedItem.ToString();            
         }
         // ck// Замена с текстстринг на лейблстринг
-        /*
-        private void TextString1_Enter(object sender, EventArgs e)
-        {
-            if (TextString1.Text == "Циклова комісія")
-            {
-                TextString1.Text = "";
-            }
-        }
-
-        private void TextString1_Leave(object sender, EventArgs e)
-        {
-            if (TextString1.Text == "")
-            {
-                TextString1.Text = "Циклова комісія";
-                TextString1.ForeColor = Color.LightGray;
-            }
-        }
-        */
         // teacher
         private void TextString2_Enter(object sender, EventArgs e)
         {
@@ -238,22 +219,106 @@ namespace WindowsFormsApp1
         // Icon calendar
         private void CalendarNonActive_Click(object sender, EventArgs e)
         {
-            CalendarNonActive.Visible = false;
-            CalendarActive.Visible = true;
-            Calendar.Visible = true;
+            CalendarNonActive1.Visible = false;
+            CalendarActive1.Visible = true;
+            Calendar1.Visible = true;
         }
         // Icon calendar
         private void CalendarActive_Click(object sender, EventArgs e)
         {
-            CalendarNonActive.Visible = true;
-            CalendarActive.Visible = false;
-            Calendar.Visible = false;
+            CalendarNonActive1.Visible = true;
+            CalendarActive1.Visible = false;
+            Calendar1.Visible = false;
         }
         //Calendar
         private void Calendar_DateSelected(object sender, DateRangeEventArgs e)
         {
-            TextString3.Text = String.Format( Calendar.SelectionStart.ToShortDateString());
+            TextString3.Text = String.Format( Calendar1.SelectionStart.ToShortDateString());
         }
+        //Calendar 2.0
+        private void CalendarNonActive2_Click(object sender, EventArgs e)
+        {
+            CalendarNonActive2.Visible = false;
+            CalendarActive2.Visible = true;
+            Calendar2.Visible = true;
+        }
+        private void CalendarActive2_Click(object sender, EventArgs e)
+        {
+            CalendarNonActive2.Visible = true;
+            CalendarActive2.Visible = false;
+            Calendar2.Visible = false;
+        }
+
+        private void Calendar2_DateSelected(object sender, DateRangeEventArgs e)
+        {
+            TextString7.Text = String.Format(Calendar2.SelectionStart.ToShortDateString());
+        }
+
+        private void ButtonCancel_Click(object sender, EventArgs e)
+        {
+            Hide();
+        }
+        // ================================================ADD TEACHER STRING SQL REQUERE+++++++++++++++++++++++++++++++++++++++
+        string t_id_s;
+        int t_id_i;
+        private void Uploading_t_id(MySqlConnection mysql_connection, MySqlCommand mysql_query)
+        {
+            mysql_connection.Open(); // Дальше для подключение и соединения с базой данных нужно вызвать метод .Open():
+            MySqlDataReader mysql_result; // Теперь, чтобы увидеть обработанный запрос нужно создать объект MySqlDataReader:
+            mysql_result = mysql_query.ExecuteReader(); //
+            if (mysql_result.HasRows)
+            {
+                while (mysql_result.Read())
+                {
+                   t_id_s = mysql_result.GetString(0);
+                }
+            }
+            mysql_result.Close();
+            mysql_connection.Close();
+        }
+        string ck_t_id_s;
+        private void Uploading_ck_t_id(MySqlConnection mysql_connection, MySqlCommand mysql_query)
+        {
+            mysql_connection.Open(); // Дальше для подключение и соединения с базой данных нужно вызвать метод .Open():
+            MySqlDataReader mysql_result; // Теперь, чтобы увидеть обработанный запрос нужно создать объект MySqlDataReader:
+            mysql_result = mysql_query.ExecuteReader(); //
+            if (mysql_result.HasRows)
+            {
+                while (mysql_result.Read())
+                {
+                    ck_t_id_s = mysql_result.GetString(0);
+                }
+            }
+            mysql_result.Close();
+            mysql_connection.Close();
+        }
+        private void ButtonOk_Click(object sender, EventArgs e)
+        {
+            /* if ( LabelString1.Text != "Циклова комісія" &&
+            TextString2.Text != "Викладач" &&
+            TextString3.Text != "Дата народження" &&
+            TextString4.Text != "Заклад освіти" &&
+            TextString5.Text != "Спеціалізація за фахом" &&
+            TextString6.Text != "Основний предмет" &&
+            TextString7.Text != "Дата останньої атестації") */
+            {
+                // id teahcer +1 
+                Uploading_t_id(mysql_connection, uploadingData(mysql_connection, "select count(t_id) from teachers;"));
+                t_id_i = Int32.Parse(t_id_s);
+                t_id_i++;
+                t_id_s = t_id_i.ToString();
+                // id ck
+                Uploading_ck_t_id(mysql_connection, uploadingData(mysql_connection, "select * from c_komisiya where ck_name = \"" + LabelString1.Text + "\";"));
+                // data to format
+                string data_s = TextString3.Text;
+                data_s = data_s.Substring(6) + "-" + data_s.Substring(3, 2) + "-" + data_s.Substring(0, 2);
+                // okonchat zapros
+
+
+            }
+        }
+
+
     }
 }
 // TEST
